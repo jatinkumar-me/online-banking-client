@@ -1,0 +1,25 @@
+body {
+  background-color: #f8f9fa;
+  margin: 0;
+  padding: 0;
+}
+
+.hero {
+  background-color: #4e5c3e;
+  /* Hero section background */
+  color: white;
+  text-align: center;
+  padding: 100px 0;
+}
+
+.image-container {
+  background-image: url('https://cdn.shopify.com/s/files/1/0489/5028/0356/files/footer_desktop-8.png?v=1705052397');
+  background-size: cover;
+  background-position: center;
+  padding: 50px 0;
+  color: white;
+  text-align: center;
+  margin-top: 150px;
+  margin-bottom: -2rem;
+}
+

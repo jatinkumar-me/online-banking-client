@@ -1,0 +1,24 @@
+.btn-close-red {
+  background-color: red;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+
+.badge {
+  position: absolute;
+  font-size: 0.8rem;
+  border-radius: 50%;
+  top: 0.8rem;
+  left: 0.7rem;
+}
+
+.cart-icon {
+  position: relative;
+  margin-right: 1rem;
+}
+
+.navbar-brand {
+  color: #4e5c3e;
+  font-weight: 900;
+}

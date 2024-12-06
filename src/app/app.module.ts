@@ -9,18 +9,20 @@ import { SharedComponentsModule } from './shared-components/shared-components.mo
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { authInterceptor } from './auth/auth.interceptor';
 import { HomeComponent } from './home/home.component';
+import { AccountsModule } from './accounts/accounts.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     LayoutComponent,
-    HomeComponent
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AuthModule,
     SharedComponentsModule,
+    AccountsModule
   ],
   providers: [
     provideHttpClient(withInterceptors([authInterceptor]))

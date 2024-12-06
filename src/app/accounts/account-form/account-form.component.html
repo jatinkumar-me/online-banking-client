@@ -1,0 +1,19 @@
+<div class="container mt-4">
+  <h3>Create New Account</h3>
+  <form (ngSubmit)="onSubmit()" [formGroup]="accountForm" class="needs-validation" novalidate>
+    <div class="mb-3">
+      <label for="accountType" class="form-label">Account Type</label>
+      <select id="accountType" class="form-select" formControlName="accountType" required>
+        <option value="" disabled selected>Select Account Type</option>
+        <option value="SAVINGS">SAVINGS</option>
+        <option value="CURRENT">CURRENT</option>
+      </select>
+      <div *ngIf="accountForm.get('accountType')?.invalid && accountForm.get('accountType')?.touched" class="text-danger">
+        Account Type is required.
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="accountForm.invalid">
+      <i class="bi bi-plus-circle"></i> Create Account
+    </button>
+  </form>
+</div>

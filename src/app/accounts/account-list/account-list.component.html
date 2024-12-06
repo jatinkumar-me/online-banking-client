@@ -1,0 +1,32 @@
+<div class="container mt-4">
+  <h3>Your Accounts</h3>
+
+  <!-- Toggle Button for Account Form -->
+  <button class="btn btn-success mb-3" (click)="toggleAccountForm()">
+    <i class="bi" [ngClass]="{'bi-plus': !showAccountForm, 'bi-x': showAccountForm}"></i>
+    {{ showAccountForm ? 'Hide Form' : 'Add Account' }}
+  </button>
+
+  <!-- Account Form -->
+  <app-account-form *ngIf="showAccountForm"></app-account-form>
+
+  <!-- Account Details or Account List -->
+  <app-account-details *ngIf="selectedAccount" [account]="selectedAccount"></app-account-details>
+  <div *ngIf="!selectedAccount" class="row">
+    <div class="col-md-4" *ngFor="let account of accounts">
+      <div class="card mb-3">
+        <div class="card-body">
+          <h5 class="card-title">{{ account.accountType }}</h5>
+          <p class="card-text">
+            Account Number: {{ account.accountNumber }}
+            <br />
+            <span class="account-balance">Balance: {{ account.balance | currency: 'INR' }}</span>
+          </p>
+          <button class="btn btn-primary btn-sm" (click)="selectAccount(account)">
+            <i class="bi bi-eye"></i> View Details
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

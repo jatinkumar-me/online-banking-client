@@ -1,0 +1,5 @@
+.account-balance {
+  font-size: 1.5rem; /* Makes the balance text larger */
+  font-weight: bold; /* Makes the text bold */
+  color: #2c3e50; /* Optional: Sets a dark gray color for better visibility */
+}

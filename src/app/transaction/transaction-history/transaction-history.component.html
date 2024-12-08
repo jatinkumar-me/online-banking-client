@@ -1,0 +1,50 @@
+<div class="container mt-4">
+  <h2 class="text-primary mb-4">
+    Transaction History
+  </h2>
+
+  <!-- Account Selection Dropdown -->
+  <div class="mb-4">
+    <label for="accountSelect" class="form-label"><strong>Select Account</strong></label>
+    <select id="accountSelect" class="form-select" [(ngModel)]="selectedAccountId" (change)="loadTransactionHistory()">
+      <option *ngFor="let account of accounts" [value]="account.accountId">
+        {{ account.accountType }} - {{ account.accountNumber }}
+      </option>
+    </select>
+  </div>
+
+  <!-- Transaction History List -->
+  <div *ngIf="transactions.length > 0; else noTransactions">
+    <div class="list-group">
+      <div *ngFor="let transaction of transactions" class="list-group-item list-group-item-action">
+        <div class="d-flex justify-content-between">
+          <div>
+            <h5 class="mb-1">
+              {{ transaction.description || 'Transaction' }}
+            </h5>
+            <p class="mb-1 text-muted">
+              From: {{ transaction.fromAccount.accountNumber }} <br />
+              To: {{ transaction.toAccount.accountNumber }} <br />
+              Date: {{ transaction.transactionDate | date: 'medium' }}
+            </p>
+          </div>
+
+          <h4
+            [ngClass]="{
+              'text-danger fw-bold': transaction.fromAccount.accountId === selectedAccountId,
+              'text-primary fw-bold': transaction.toAccount.accountId === selectedAccountId
+            }">
+            {{ transaction.amount | currency : 'INR' }}
+          </h4>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- No Transactions Message -->
+  <ng-template #noTransactions>
+    <div class="alert alert-warning text-center">
+      No transactions found for the selected account.
+    </div>
+  </ng-template>
+</div>

@@ -22,7 +22,7 @@ import { AccountsModule } from './accounts/accounts.module';
     AppRoutingModule,
     AuthModule,
     SharedComponentsModule,
-    AccountsModule
+    AccountsModule,
   ],
   providers: [
     provideHttpClient(withInterceptors([authInterceptor]))

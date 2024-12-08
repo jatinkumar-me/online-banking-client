@@ -6,6 +6,8 @@ import { RegisterComponent } from './auth/register/register.component';
 import { HomeComponent } from './home/home.component';
 import { AccountListComponent } from './accounts/account-list/account-list.component';
 import { AuthGuard } from './auth/auth.guard';
+import { TransactionFormComponent } from './transaction/transaction-form/transaction-form.component';
+import { TransactionHistoryComponent } from './transaction/transaction-history/transaction-history.component';
 
 const routes: Routes = [
   {
@@ -17,9 +19,11 @@ const routes: Routes = [
       { path: 'login', component: LoginComponent },
       { path: 'register', component: RegisterComponent },
       { path: 'accounts', component: AccountListComponent, canActivate: [AuthGuard] },
+      { path: 'transfer', component: TransactionFormComponent, canActivate: [AuthGuard] },
+      { path: 'transactions', component: TransactionHistoryComponent, canActivate: [AuthGuard] },
     ]
   },
-  { path: '**', redirectTo: 'products' }
+  { path: '**', redirectTo: 'home' }
 ];
 
 @NgModule({

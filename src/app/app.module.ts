@@ -11,6 +11,7 @@ import { authInterceptor } from './auth/auth.interceptor';
 import { HomeComponent } from './home/home.component';
 import { AccountsModule } from './accounts/accounts.module';
 import { TransactionModule } from './transaction/transaction.module';
+import { AdminModule } from './admin/admin.module';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { TransactionModule } from './transaction/transaction.module';
     AuthModule,
     SharedComponentsModule,
     AccountsModule,
-    TransactionModule
+    TransactionModule,
+    AdminModule
   ],
   providers: [
     provideHttpClient(withInterceptors([authInterceptor]))

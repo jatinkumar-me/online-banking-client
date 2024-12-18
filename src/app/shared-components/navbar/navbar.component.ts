@@ -8,6 +8,7 @@ import { AuthService } from '../../auth/auth.service';
 })
 export class NavbarComponent implements OnInit {
   isLoggedIn: boolean = false;
+  isAdmin: boolean = false;
   username: string | undefined;
   cartItemCount = 0;
   showModal = false;
@@ -18,6 +19,7 @@ export class NavbarComponent implements OnInit {
     this.authService.currentUser.subscribe(user => {
       this.isLoggedIn = user != null;
       this.username = user?.name;
+      this.isAdmin = user?.role === "ADMIN"
     });
   }
 

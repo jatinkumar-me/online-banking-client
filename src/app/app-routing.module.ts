@@ -8,6 +8,10 @@ import { AccountListComponent } from './accounts/account-list/account-list.compo
 import { AuthGuard } from './auth/auth.guard';
 import { TransactionFormComponent } from './transaction/transaction-form/transaction-form.component';
 import { TransactionHistoryComponent } from './transaction/transaction-history/transaction-history.component';
+import { AdminGuard } from './auth/admin.guard';
+import { DashboardComponent } from './admin/dashboard/dashboard.component';
+import { AccountsComponent } from './admin/accounts/accounts.component';
+import { UsersComponent } from './admin/users/users.component';
 
 const routes: Routes = [
   {
@@ -21,6 +25,14 @@ const routes: Routes = [
       { path: 'accounts', component: AccountListComponent, canActivate: [AuthGuard] },
       { path: 'transfer', component: TransactionFormComponent, canActivate: [AuthGuard] },
       { path: 'transactions', component: TransactionHistoryComponent, canActivate: [AuthGuard] },
+      {
+        path: 'admin', component: DashboardComponent, canActivate: [AdminGuard],
+        children: [
+          { path: 'accounts', component: AccountsComponent },
+          { path: 'users', component: UsersComponent },
+          { path: '**', redirectTo: 'accounts' }
+        ]
+      },
     ]
   },
   { path: '**', redirectTo: 'home' }
